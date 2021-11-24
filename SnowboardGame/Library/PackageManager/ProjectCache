@@ -5,26 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-<<<<<<< HEAD
-      ticks: 637731188223864908
-    m_Hash: 2473341795
-=======
-      ticks: 637732261316147440
-    m_Hash: 2393899782
->>>>>>> 302a9e34527eef49d227cdf37653a613efdc8ced
+      ticks: 637732916161158942
+    m_Hash: 1816800065
   m_LockFileStatus:
     m_FilePath: C:/Users/graha/Documents/SnowboardGame/GraphicsProject/SnowboardGame/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-<<<<<<< HEAD
-      ticks: 637731188223870052
-    m_Hash: 1383147997
-=======
-      ticks: 637732261317274216
-    m_Hash: 2771989304
->>>>>>> 302a9e34527eef49d227cdf37653a613efdc8ced
+      ticks: 637732916161158942
+    m_Hash: 1378949433
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -426,7 +416,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.0.2
       source: 1
-      resolvedPath: B:\SnowboardGame\GraphicsProject\SnowboardGame\Library\PackageCache\com.unity.inputsystem@1.0.2
+      resolvedPath: C:\Users\graha\Documents\SnowboardGame\GraphicsProject\SnowboardGame\Library\PackageCache\com.unity.inputsystem@1.0.2
       assetPath: Packages/com.unity.inputsystem
       name: com.unity.inputsystem
       displayName: Input System
@@ -2918,18 +2908,8 @@ m_PackageAssets:
       versions:
         all:
         - 1.0.1
-        - 1.1.0-pre.7
-        - 1.1.0-pre.8
-        - 1.1.0-pre.9
-        - 1.1.0-pre.10
-        - 1.1.0-pre.11
         compatible:
         - 1.0.1
-        - 1.1.0-pre.7
-        - 1.1.0-pre.8
-        - 1.1.0-pre.9
-        - 1.1.0-pre.10
-        - 1.1.0-pre.11
         verified: 1.0.1
       dependencies:
       - name: com.unity.modules.unitywebrequest
@@ -2950,7 +2930,7 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637604883250000000
+      datePublishedTicks: 0
       documentationUrl: 
       hasRepository: 1
       repository:
