@@ -8,29 +8,36 @@ namespace BrownBronson.Lab1
         [SerializeField] private Rigidbody playerToMove;
         [SerializeField] private float speed = 5f;
         private InputAction moveAction;
-        Vector3 RFL;
-        Vector3 RFR;
+        Vector3 angVel;
         public void Initialize(InputAction moveAction)
         {
             this.moveAction = moveAction;
             this.moveAction.Enable();
-            RFL = new Vector3(0, -60, 0);
-            RFR = new Vector3(0, 60, 0);
+            angVel = new Vector3(0, 100, 0);
         }
         private void FixedUpdate()
         {
             var rInput =  moveAction.ReadValue<Vector2>().x;
-            if (rInput > 0)
+            playerToMove.MoveRotation(playerToMove.rotation * Quaternion.Euler(angVel * rInput * Time.fixedDeltaTime));
+            angleLock();
+            applyForce();
+        }
+        private void applyForce()
+        {
+            if (playerToMove.rotation.eulerAngles.y < 360 && playerToMove.rotation.eulerAngles.y > 270) 
+                playerToMove.AddForce(Vector3.left * 5 * ((360 - playerToMove.rotation.eulerAngles.y)));
+            if (playerToMove.rotation.eulerAngles.y > 0 && playerToMove.rotation.eulerAngles.y < 90) 
+                playerToMove.AddForce(Vector3.right * 5 *  (playerToMove.rotation.eulerAngles.y));
+        }
+        private void angleLock()
+        {
+            if (playerToMove.rotation.eulerAngles.y > 90)
             {
-                playerToMove.MoveRotation(playerToMove.rotation * Quaternion.Euler(RFR * Time.fixedDeltaTime));
-                    playerToMove.AddForce(Vector3.right * 15 * (playerToMove.rotation.eulerAngles.y % 180));
-                    print(playerToMove.rotation.eulerAngles.y % 180);
+                if (playerToMove.rotation.eulerAngles.y < 270 && playerToMove.rotation.eulerAngles.y > 180) playerToMove.rotation = Quaternion.Euler(playerToMove.rotation.eulerAngles.x, 269, playerToMove.rotation.eulerAngles.z);
             }
-            else if (rInput < 0)
+            if (playerToMove.rotation.eulerAngles.y < 270)
             {
-                playerToMove.MoveRotation(playerToMove.rotation * Quaternion.Euler(RFL * Time.fixedDeltaTime));
-                playerToMove.AddForce(Vector3.left * 15 * ((playerToMove.rotation.eulerAngles.y % 180)/2));
-                print((playerToMove.rotation.eulerAngles.y % 180) / 2);
+                if (playerToMove.rotation.eulerAngles.y > 90 && playerToMove.rotation.eulerAngles.y < 180) playerToMove.rotation = Quaternion.Euler(playerToMove.rotation.eulerAngles.x, 89, playerToMove.rotation.eulerAngles.z);
             }
         }
     }
