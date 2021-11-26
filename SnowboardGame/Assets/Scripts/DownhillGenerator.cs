@@ -60,21 +60,23 @@ public class DownhillGenerator : MonoBehaviour
         mesh.triangles = triangles;
         mesh.RecalculateNormals();
 
+        GetComponent<MeshCollider>().sharedMesh = mesh;
 
-        // Generate collider mesh. Just a plane.
-        Mesh colliderMesh = new Mesh();
-        Vector3[] colliderVerticies = new Vector3[] {
-            new Vector3(0,0,0), new Vector3(x+1,0,0), new Vector3(0,0,y+1), new Vector3(x+1,0,y+1)
-        };
+        /* This is useful if you want to get rid of the bumpiness of the plane and just use a rectangular hitbox */
+        //// Generate collider mesh. Just a plane.
+        //Mesh colliderMesh = new Mesh();
+        //Vector3[] colliderVerticies = new Vector3[] {
+        //    new Vector3(0,0,0), new Vector3(x+1,0,0), new Vector3(0,0,y+1), new Vector3(x+1,0,y+1)
+        //};
 
-        int[] colliderTriangles = new int[]{
-            0,2,1,2,3,1
-        };
+        //int[] colliderTriangles = new int[]{
+        //    0,2,1,2,3,1
+        //};
 
-        colliderMesh.Clear();
-        colliderMesh.vertices = colliderVerticies;
-        colliderMesh.triangles = colliderTriangles;
-        colliderMesh.RecalculateNormals();
-        GetComponent<MeshCollider>().sharedMesh = colliderMesh;
+        //colliderMesh.Clear();
+        //colliderMesh.vertices = colliderVerticies;
+        //colliderMesh.triangles = colliderTriangles;
+        //colliderMesh.RecalculateNormals();
+        //GetComponent<MeshCollider>().sharedMesh = colliderMesh;
     }
 }
