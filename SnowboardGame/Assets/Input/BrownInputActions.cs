@@ -51,6 +51,14 @@ namespace BrownBronson.Input
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""8aed8554-faa3-458c-a285-4b3952ca42b2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -284,6 +292,17 @@ namespace BrownBronson.Input
                     ""action"": ""CameraSwitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9f97bea3-7dee-4f12-8c95-eeeaa4bd9f82"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -296,6 +315,7 @@ namespace BrownBronson.Input
             m_Player_Reset = m_Player.FindAction("Reset", throwIfNotFound: true);
             m_Player_Quit = m_Player.FindAction("Quit", throwIfNotFound: true);
             m_Player_CameraSwitch = m_Player.FindAction("CameraSwitch", throwIfNotFound: true);
+            m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -349,6 +369,7 @@ namespace BrownBronson.Input
         private readonly InputAction m_Player_Reset;
         private readonly InputAction m_Player_Quit;
         private readonly InputAction m_Player_CameraSwitch;
+        private readonly InputAction m_Player_Jump;
         public struct PlayerActions
         {
             private @BrownInputActions m_Wrapper;
@@ -357,6 +378,7 @@ namespace BrownBronson.Input
             public InputAction @Reset => m_Wrapper.m_Player_Reset;
             public InputAction @Quit => m_Wrapper.m_Player_Quit;
             public InputAction @CameraSwitch => m_Wrapper.m_Player_CameraSwitch;
+            public InputAction @Jump => m_Wrapper.m_Player_Jump;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -378,6 +400,9 @@ namespace BrownBronson.Input
                     @CameraSwitch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCameraSwitch;
                     @CameraSwitch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCameraSwitch;
                     @CameraSwitch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCameraSwitch;
+                    @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                    @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                    @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -394,6 +419,9 @@ namespace BrownBronson.Input
                     @CameraSwitch.started += instance.OnCameraSwitch;
                     @CameraSwitch.performed += instance.OnCameraSwitch;
                     @CameraSwitch.canceled += instance.OnCameraSwitch;
+                    @Jump.started += instance.OnJump;
+                    @Jump.performed += instance.OnJump;
+                    @Jump.canceled += instance.OnJump;
                 }
             }
         }
@@ -404,6 +432,7 @@ namespace BrownBronson.Input
             void OnReset(InputAction.CallbackContext context);
             void OnQuit(InputAction.CallbackContext context);
             void OnCameraSwitch(InputAction.CallbackContext context);
+            void OnJump(InputAction.CallbackContext context);
         }
     }
 }

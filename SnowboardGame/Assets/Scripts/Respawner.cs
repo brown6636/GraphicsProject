@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace BrownBronson.Lab1
+namespace SnowboardGame
 {
     public class Respawner : MonoBehaviour
     {

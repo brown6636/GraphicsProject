@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1611,6 +1611,7 @@ GameObject:
   - component: {fileID: 1701215575}
   - component: {fileID: 1701215576}
   - component: {fileID: 1701215578}
+  - component: {fileID: 1701215579}
   m_Layer: 0
   m_Name: Tommy Gesme
   m_TagString: Untagged
@@ -1633,6 +1634,7 @@ MonoBehaviour:
   movementController: {fileID: 1701215574}
   cameraSwitcher: {fileID: 1701215575}
   respawner: {fileID: 1701215576}
+  jumpAction: {fileID: 1701215579}
 --- !u!114 &1701215574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1716,6 +1718,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1701215579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701215572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85eb10f2559d08f42abc60e247c813dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpingPlayer: {fileID: 1701215578}
 --- !u!1 &1702047965
 GameObject:
   m_ObjectHideFlags: 0

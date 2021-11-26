@@ -1,7 +1,7 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
 
-namespace BrownBronson.Lab1
+namespace SnowboardGame
 {
     public class MovementController : MonoBehaviour
     {

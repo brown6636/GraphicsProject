@@ -1,6 +1,6 @@
 using UnityEngine.InputSystem;
 
-namespace BrownBronson.Lab1
+namespace SnowboardGame
 {
     public class NextCameraHandler
     {
